@@ -1,0 +1,65 @@
+#project1 {
+    background-image:url(assets/img/demo-image-02.jpg);
+    background-repeat:no-repeat;
+    background-clip: border-box;
+    background-size: cover;
+}
+
+#desc1 {
+    background-image: linear-gradient(to left, black, rgba(0, 0, 0, 0.548), rgba(0, 0, 0, 0));
+}
+
+#project2 {
+    background-image:url(assets/img/revendaplus.png);
+    background-repeat:no-repeat;
+    background-clip: border-box;
+    background-size: cover;
+    background-position: bottom;
+}
+
+#desc2 {
+    background-image: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+}
+
+#spacing {
+    margin: 24px;
+}
+
+#produtos {
+    border-bottom: 6px solid rgb(68, 126, 116);
+}
+
+#media1:hover {
+    background-color: rgb(0, 0, 0)
+}
+
+#media2:hover {
+    background-color: rgb(24, 151, 73)
+}
+
+#media3:hover{
+  background-color: rgb(23, 42, 82)
+}
+
+#media1 {
+    background-color: rgb(36, 36, 36); 
+    padding-top: 10px; 
+}
+#media2 {
+    background-color: rgb(33, 211, 102); 
+    padding-top: 10px; 
+    padding-bottom: 10px
+}
+#media3 {
+    background-color: rgb(60, 90, 153); 
+    padding-top: 10px; 
+    padding-bottom: 10px
+}
+
+input:hover, section:hover {
+    background-color: rgb(221, 221, 221);
+}
+
+input:focus {
+    border-color: aqua;
+}
