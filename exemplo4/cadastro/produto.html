@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="user.css">
+    <link rel="stylesheet" href="../menu/menu.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+    <title>Document</title>
+</head>
+
+<script>
+    $(document).ready(function() {
+        $('.fone').mask("(99) 9999?99999");
+        $("button").click(function(){
+            nome = $("input[name=nome]").val(),
+            idade = $("input[name=idade]").val(),
+            email = $("input[name=email]").val(),
+            fone = $("input[name=fone]").val()
+            if (nome != "" || idade != "" || email != "" || fone != "") {
+                $.post("../write.php",{
+                    nome: nome,
+                    idade: idade,
+                    email: email,
+                    fone: fone
+                })
+            }
+        })
+    });
+</script>
+
+{menu}
+
+<body>
+    <Main>
+        <div id="formholder">
+            <form onsubmit="event.preventDefault()" method="post" id="write">
+                <input type="number" name="cod" placeholder="Codigo" required>
+                <input type="text" name="nome" placeholder="Nome" required>
+                <input type="number" name="codBar" placeholder="Codigo de Barras" required>
+                <input type="number" name="val" placeholder="Valor" required>
+                <select name="status">
+                    <option value="Ativo">Ativo</option>
+                    <option value="Inativo">Inativo</option>
+                </select>
+                <button type="submit" form="write" id="bwrite">Enviar</button>
+            </form>
+        </div>
+    </Main>
+</body>
+
+
+</html>

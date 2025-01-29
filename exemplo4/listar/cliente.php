@@ -23,7 +23,7 @@
      $edit = (int) $_POST["edit"];
  } else if (key_exists('del', $_POST)) {
      $id = $_POST['del'];
-     $sqlDel = "DELETE FROM user WHERE user_id = '$id'";
+     $sqlDel = "DELETE FROM cliente WHERE cliente_id = '$id'";
      $conn->query($sqlDel);
  } else if (key_exists("confirm", $_POST)) {
      $id = $_POST["confirm"];
@@ -31,7 +31,7 @@
      $idade = $_POST["idade"];
      $email = $_POST["email"];
      $fone = $_POST["fone"];
-     $sqlEdit = "UPDATE user SET user_nome = '$nome', user_idade = '$idade' , user_email = '$email', user_telefone = '$fone' WHERE user_id = '$id'";
+     $sqlEdit = "UPDATE cliente SET user_nome = '$nome', user_idade = '$idade' , user_email = '$email', user_telefone = '$fone' WHERE user_id = '$id'";
      $conn->query($sqlEdit);
  }
  
@@ -43,7 +43,7 @@
      $p = $_SESSION['value'];
  }
  
- $sqlSelect = "SELECT * FROM cliente";
+ $sqlSelect = "SELECT cliente_id, cliente_nome, cliente_tipo, cliente_cpf_cnpj, cliente_status FROM cliente";
  $tabela = $conn->query($sqlSelect);
  $allRows = $tabela->fetch_all();
  $len = 10;

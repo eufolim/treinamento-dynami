@@ -12,7 +12,7 @@
                 $_SESSION["user"] = $_POST["nome"];
                 $_SESSION["pass"] = $_POST["senha"];
                 $_SESSION["logged"] = true;
-                header('Location: ../cadastro/cadastro.php');
+                header('Location: ../cadastro/user.php');
             }
         }
     }
