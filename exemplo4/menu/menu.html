@@ -1,0 +1,27 @@
+<header>
+    <p id="menu">Logo</p>
+    <div class="navbar">
+        <div class="dropdown" id="cad">
+            <button class="dropbtn">Cadastrar
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="../cadastro/user.php">Usuario</a>
+                <a href="../cadastro/client.php">Cliente</a>
+                <a href="../cadastro/user.php">Produto</a>
+            </div>
+        </div>
+        <div id="list" class="dropdown">
+            <button class="dropbtn">Listar
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="../listar/user.php">Usuario</a>
+                <a href="../listar/cliente.php">Cliente</a>
+                <a href="../listar/listar.php">Produto</a>
+            </div>
+        </div>
+    </div>
+    <a href='../login/login.php' id="var" onclick="return confirm('deseja sair da conta?')">{user}</a>
+    <p id="user">user</p>
+</header>
