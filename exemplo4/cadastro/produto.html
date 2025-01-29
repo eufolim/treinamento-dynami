@@ -16,20 +16,12 @@
     $(document).ready(function() {
         $('.fone').mask("(99) 9999?99999");
         $("button").click(function(){
-            nome = $("input[name=nome]").val(),
-            idade = $("input[name=idade]").val(),
-            email = $("input[name=email]").val(),
-            fone = $("input[name=fone]").val()
-            if (nome != "" || idade != "" || email != "" || fone != "") {
-                $.post("../write.php",{
-                    nome: nome,
-                    idade: idade,
-                    email: email,
-                    fone: fone
+            form = $("form").serializeArray()    
+            $.post("../insertp.php",{
+                    form
                 })
-            }
+            })
         })
-    });
 </script>
 
 {menu}

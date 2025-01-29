@@ -5,7 +5,7 @@
      header('Location: ../login/login.php');
  }
  
- $content = file_get_contents("cliente.html");
+ $content = file_get_contents("../listar/produto.html");
  $menu = file_get_contents("../menu/menu.html");
  $page = str_replace('{menu}', $menu, $content);
  $page = str_replace('{user}', $_SESSION["user"], $page);
@@ -23,7 +23,7 @@
      $edit = (int) $_POST["edit"];
  } else if (key_exists('del', $_POST)) {
      $id = $_POST['del'];
-     $sqlDel = "DELETE FROM cliente WHERE cliente_id = '$id'";
+     $sqlDel = "DELETE FROM produto WHERE produto_id = '$id'";
      $conn->query($sqlDel);
  } else if (key_exists("confirm", $_POST)) {
      $id = $_POST["confirm"];
@@ -31,7 +31,7 @@
      $idade = $_POST["idade"];
      $email = $_POST["email"];
      $fone = $_POST["fone"];
-     $sqlEdit = "UPDATE cliente SET user_nome = '$nome', user_idade = '$idade' , user_email = '$email', user_telefone = '$fone' WHERE user_id = '$id'";
+     $sqlEdit = "UPDATE produto SET user_nome = '$nome', user_idade = '$idade' , user_email = '$email', user_telefone = '$fone' WHERE user_id = '$id'";
      $conn->query($sqlEdit);
  }
  
@@ -43,7 +43,7 @@
      $p = $_SESSION['value'];
  }
  
- $sqlSelect = "SELECT cliente_id, cliente_nome, cliente_tipo, cliente_cpf_cnpj, cliente_status FROM cliente";
+ $sqlSelect = "SELECT produto_id, produto_codigo, produto_nome, produto_codigo_barras, produto_valor, produto_status FROM produto";
  $tabela = $conn->query($sqlSelect);
  $allRows = $tabela->fetch_all();
  $len = 10;
@@ -55,25 +55,16 @@
      $lista = $lista . "<tr>";
      if ($n === $edit) {
          $lista = $lista . "<form method='post'>
-            <td><input type='text' name='nome' value='$row[1]' required></td>
-            <td>
-            <select name='CPF_CNPJ'>
-                <option value='CPF'>CPF</option>
-                <option value='CNPJ'>CNPJ</option>
-            </select>
-            </td>
-            <td><input type='' name='pcf' value='$row[3]' required></td>
-            <td>
-            <select name='status'>
-                <option value='Ativo'>Ativo</option>
-                <option value='Inativo'>Inativo</option>
-            </select> 
-            </td>
-            <td>
-                <button type='submit' name='confirm' value='$row[0]'>Confirmar</button>
-                <button type='submit' name='deny' value='x'>x</button>
-            </td>
-            </form>";
+             <td><input type='text' name='cod' value='$row[1]' required></td>
+             <td><input type='tel' name='nome' value='$row[2]' required></td>
+             <td><input type='number' name='bar' value='$row[3]' required></td>
+             <td><input type='number' name='val' value='$row[4]' required> </td>
+             <td><input type='tex' name='status' value='$row[5]' required> </td>
+             <td>
+                 <button type='submit' name='confirm' value='$row[0]'>Confirmar</button>
+                 <button type='submit' name='deny' value='x'>x</button>
+             </td>
+             </form>";
      } else {
          $id = array_shift($row);
          foreach ($row as $i) {
